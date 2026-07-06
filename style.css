@@ -1,0 +1,598 @@
+/* Global Reset and Base Styles */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body{
+    background-color: rgba(127, 255, 212,0.55);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Background Image Styles */
+body.bg-img{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    positon:fixed;
+}
+
+/* Navigation Bar Styles */
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background-color: rgba(0,0,0,0.4);
+    color: #fff;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Logo Styles */
+.logo h1{
+    font-family: 'monospace';
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Navigation Links Container */
+.nav-links{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Temperature Unit Toggle Styles */
+.temp-unit{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.temp-unit div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Focus State Styles */
+:focus {
+    outline: 0;
+    border-color: #2260ff;
+    box-shadow: 0 0 0 4px #b5c9fc;
+}
+
+/* Temperature Unit Radio Button Styles */
+.temp-unit input[type="radio"] {
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Selected Temperature Unit Styles */
+.temp-unit input[type="radio"]:checked + span {
+    box-shadow: 0 0 0 0.0625em #0043ed;
+    background-color: #dee7ff;
+    z-index: 1;
+    color: #0043ed;
+}
+
+/* Temperature Unit Label Styles */
+label span {
+    display: block;
+    cursor: pointer;
+    background-color: #fff;
+    padding: 0.375em .75em;
+    position: relative;
+    margin-left: .0625em;
+    box-shadow: 0 0 0 0.0625em #b5bfd9;
+    letter-spacing: .05em;
+    color: #3e4963;
+    text-align: center;
+    transition: background-color .5s ease;
+}
+
+/* Temperature Unit Label Border Radius */
+label:first-child span {
+    border-radius: .375em 0 0 .375em;
+}
+
+label span {
+    border-radius:  0 .375em .375em 0 ;
+}
+
+/* Main Container Styles */
+.container{
+    width: 90%;
+    max-width: 470px;
+    background:rgba(0,0,0,0.4);
+    color:#fff;
+    margin: 20px auto;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    padding: 35px 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Container Hover Effect */
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    
+}
+
+/* Search Section Styles */
+.search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Search Input Styles */
+.search input{
+    border: 0;
+    margin: 0;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    padding: 10px 25px;
+    height: 60px;
+    width: 100%;
+    max-width: 320px;
+    border-radius: 40px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+/* Search Input Focus State */
+.search input:focus {
+    outline: none;
+    background: rgba(0,0,0,0.6);
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+/* Search Input Hover Effect */
+.search input:hover {
+    transform: scale(1.05);
+}
+
+/* Search Button Styles */
+.search button{
+    border:0;
+    margin: 0;
+    background:rgba(0,0,0,0.4);
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    cursor:pointer;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+/* Search Button Hover Effect */
+.search button:hover {
+    background: rgba(0,0,0,0.6);
+    transform: scale(1.1);
+}
+
+/* Search Button Active State */
+.search button:active {
+    transform: scale(0.95);
+}
+
+/* Search Icon Styles */
+.search-img{
+    width: 24px;
+    color:grey;
+    transition: transform 0.3s ease;
+}
+
+/* Location Button Styles */
+.location-btn{
+    background:rgba(0,0,0,0.4);
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    cursor:pointer;
+}
+
+/* Location Icon Styles */
+.location-img{
+    width: 24px;
+    color:grey;
+    transition: transform 0.3s ease;
+}
+
+/* Location Button Hover Effect */
+.location-btn:hover{
+    transform: scale(1.1);
+}
+
+/* Weather Icon Styles */
+.weather-icon{
+    width: 140px;
+    margin-top: 30px;
+    max-width: 100%;
+    animation: float 3s ease-in-out infinite;
+    object-fit: contain;
+}
+
+/* Weather Type Text Styles */
+.weather-type{
+    font-size:30px;
+    font-weight:400;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* Temperature Display Styles */
+.weather h1{
+    font-size: 60px;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+    margin-top: 20px;
+}
+
+/* Temperature Hover Effect */
+.weather h1:hover {
+    transform: scale(1.05);
+}
+
+/* City Name Styles */
+.weather h2{
+    font-size:40px;
+    font-weight:400;
+    margin-top: -10px;
+    transition: transform 0.3s ease;
+}
+
+/* City Name Hover Effect */
+.weather h2:hover {
+    transform: scale(1.05);
+}
+
+/* Weather Details Container */
+.details{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 50px;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+/* Weather Detail Column Styles */
+.col{
+    display: flex;
+    align-items: center;
+    text-align: left;
+    flex: 1;
+    min-width: 0;
+    transition: transform 0.3s ease;
+}
+
+/* Pressure Column Specific Styles */
+.pressure-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 15px 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Column Hover Effect */
+.col:hover {
+    transform: scale(1.05);
+}
+
+/* Weather Detail Icons */
+.col img{
+    width: 40px;
+    margin-right: 10px;
+}
+
+/* Weather Detail Icons Hover Effect */
+.col:hover img {
+    transform: scale(1.1);
+}
+
+/* Weather Metrics Text Styles */
+.humidity, .wind, .pressure {
+    font-size: 28px;
+    margin-top: -6px;
+}
+
+/* Animations */
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Floating Animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 95%;
+        max-width: 600px;
+        padding: 30px 20px;
+    }
+    
+    .weather h1 {
+        font-size: 50px;
+    }
+    
+    .weather h2 {
+        font-size: 24px;
+    }
+
+    .weather-icon {
+        width: 120px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        padding: 15px 20px;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 25px 15px;
+        margin: 20px auto;
+    }
+    
+    .weather h1 {
+        font-size: 45px;
+    }
+    
+    .weather h2 {
+        font-size: 22px;
+    }
+    
+    .details {
+        padding: 20px 15px;
+    }
+    
+    .humidity, .wind, .pressure {
+        font-size: 16px;
+    }
+    
+    .search input {
+        max-width: 100%;
+        margin-right: 10px;
+    }
+    
+    .search button, .location-btn {
+        height: 50px;
+        width: 50px;
+    }
+
+    .weather-icon {
+        width: 100px;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav {
+        padding: 10px 15px;
+    }
+    
+    .logo h1 {
+        font-size: 20px;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+    
+    .search {
+        gap: 8px;
+    }
+    
+    .search input {
+        height: 50px;
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+    
+    .search button, .location-btn {
+        height: 45px;
+        width: 45px;
+    }
+    
+    .weather h1 {
+        font-size: 40px;
+    }
+    
+    .weather h2 {
+        font-size: 20px;
+    }
+    
+    .weather-icon {
+        width: 80px;
+        margin-top: 15px;
+    }
+    
+    .details {
+        padding: 15px 10px;
+    }
+    
+    .col {
+        padding: 10px;
+    }
+    
+    .col img {
+        width: 30px;
+    }
+    
+    .humidity, .wind, .pressure {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    nav {
+        padding: 8px 12px;
+    }
+    
+    .logo h1 {
+        font-size: 18px;
+    }
+    
+    .container {
+        width: 98%;
+        padding: 15px 10px;
+        margin-top: 20px;
+    }
+    
+    .search input {
+        height: 45px;
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+    
+    .search button, .location-btn {
+        height: 40px;
+        width: 40px;
+    }
+    
+    .weather h1 {
+        font-size: 35px;
+    }
+    
+    .weather h2 {
+        font-size: 18px;
+    }
+    
+    .weather-icon {
+        width: 70px;
+        margin-top: 10px;
+    }
+    
+    .details {
+        padding: 12px 8px;
+    }
+    
+    .col {
+        padding: 8px;
+    }
+    
+    .col img {
+        width: 25px;
+    }
+    
+    .humidity, .wind, .pressure {
+        font-size: 12px;
+    }
+}
+
+/* Add support for landscape orientation on mobile */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .container {
+        margin: 10px auto;
+        padding: 15px;
+    }
+    
+    .weather-icon {
+        width: 80px;
+        margin-top: 15px;
+    }
+    
+    .weather h1 {
+        font-size: 35px;
+        margin-top: 10px;
+    }
+    
+    .details {
+        padding: 10px;
+    }
+    
+    .col {
+        padding: 8px;
+    }
+}
+
+/* Footer Styles */
+footer{
+    margin-top: auto;
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    color: #fff;
+    font-size: 14px;
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Dark Theme Styles */
+body.dark {
+    background-color: #1a1a1a;
+}
+
+body.dark .container {
+    background: rgba(77, 77, 77, 0.7);
+}
+
+nav.dark{
+    background-color: rgba(0,0,0,0.6);
+}
+
+.temp-unit input[type="radio"]:checked + span {
+    background-color: #2c2c2c;
+    color: #fff;
+}
+.search-img.dark{
+    color: #fff;
+}
+.location-img.dark{
+    color: #fff;
+}
+
+
+
+
+
+  
